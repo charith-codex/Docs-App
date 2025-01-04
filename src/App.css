@@ -1,42 +1,85 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* src/components/Editor.css */
+
+header {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4285F4;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Main editor container */
+.google-docs-editor {
+  height: 500px;
+  max-width: 900px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  /* Light gray border */
+  background-color: #ffffff;
+  /* White background */
+  font-family: 'Roboto', sans-serif;
+  /* Google Docs font */
+  font-size: 16px;
+  /* Font size for readability */
+  line-height: 1.5;
+  /* Adjust line height for better spacing */
+  padding: 20px;
+  /* Add some padding to the content */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Toolbar styling to make it minimal like Google Docs */
+.ql-toolbar {
+  background-color: #f1f3f4;
+  /* Light grey, similar to Google Docs */
+  border: none;
+  border-radius: 5px;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+/* Custom button styling */
+.ql-toolbar button {
+  color: #5f6368;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 2px;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+.ql-toolbar button:hover {
+  background-color: #e8f0fe;
+  border-radius: 5px;
+}
+
+.ql-toolbar .ql-formats {
+  margin-right: 20px;
+}
+
+/* Adjust font size and icon sizes to match the minimal style of Google Docs */
+.ql-toolbar .ql-header {
+  font-size: 16px;
+}
+
+.ql-toolbar .ql-bold,
+.ql-toolbar .ql-italic,
+.ql-toolbar .ql-underline {
+  font-size: 18px;
+}
+
+/* Make the editor content more Google Docs-like */
+.ql-editor {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+/* Remove any default Quill styling on the editor */
+.ql-editor .ql-blank::before {
+  content: 'Type here...';
+  color: #5f6368;
+  /* Placeholder text style */
 }
