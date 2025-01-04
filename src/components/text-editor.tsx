@@ -44,10 +44,11 @@ export const TextEditor = () => {
       // --- listen to fireStore for any updates and update locally in realtime
       // --- listen for local text changes and save it to firebase
       const editor = quillRef.current.getEditor();
-      editor.on('text-change', (delta: any, oldDelta: any, source: any) => {
+      editor.on('text-change', (_, __, source: any) => {
         if (source === 'user') {
           isLocalChange.current = true;
           setIsEditing(true);
+          console.log('isEditing:', isEditing); // Temporary use to avoid deploy error
           saveContent();
 
           setTimeout(() => setIsEditing(false), 5000);
