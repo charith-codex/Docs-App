@@ -4,7 +4,7 @@ import { db } from '../firebase-config';
 import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore';
 import 'react-quill/dist/quill.snow.css';
 import '../App.css';
-// import { throttle } from 'lodash';
+import { throttle } from 'lodash';
 
 export const TextEditor = () => {
   const quillRef = useRef<ReactQuill | null>(null);
@@ -13,7 +13,7 @@ export const TextEditor = () => {
   const isLocalChange = useRef(false);
   const documentRef = doc(db, 'documents', 'sample-doc');
 
-  // const saveContent = throttle(() => {
+  const saveContent = throttle(() => {
   const saveContent = () => {
     if (quillRef.current && isLocalChange.current) {
       const content = quillRef.current.getEditor().getContents();
@@ -25,7 +25,7 @@ export const TextEditor = () => {
       isLocalChange.current = false;
     }
   };
-  // }, 1000);
+  }, 2000);
 
   useEffect(() => {
     if (quillRef.current) {
