@@ -14,7 +14,7 @@ export const TextEditor = () => {
   const documentRef = doc(db, 'documents', 'sample-doc');
 
   const saveContent = throttle(() => {
-  const saveContent = () => {
+  // const saveContent = () => {
     if (quillRef.current && isLocalChange.current) {
       const content = quillRef.current.getEditor().getContents();
       console.log(content);
@@ -24,7 +24,7 @@ export const TextEditor = () => {
         .catch(console.error);
       isLocalChange.current = false;
     }
-  };
+  // };
   }, 2000);
 
   useEffect(() => {
